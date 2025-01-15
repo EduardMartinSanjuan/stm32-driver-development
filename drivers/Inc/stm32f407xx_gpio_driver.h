@@ -32,6 +32,7 @@ typedef struct
  */
 void GPIO_PeriClockControl(void);
 
+
 /*
  * Init and De-Init
  */
