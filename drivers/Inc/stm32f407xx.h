@@ -135,7 +135,6 @@ typedef struct
 	__vo uint32_t PLLI2SCFGR;		/* RCC PLLI2S configuration register. Offset: 0x84 */
 } RCC_RegDef_t;
 
-
 /*
 * Peripheral definitions (Peripheral base addresses typecasted to xxx_RegDef_t)
 */
