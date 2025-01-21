@@ -21,7 +21,7 @@ int main(void)
 
 	GPIO_Init(&GPIO_Led);
 
-	while(1)//Infinite loop
+	while(1)//Infinite
 	{
 		GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_12);
 		delay();
