@@ -13,7 +13,7 @@ int main(void)
 	//this is led gpio configuration
 
 	GpioLed.pGPIOx = GPIOD;
-	GpioLed.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_12;
+	GpioLed.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_10;
 	GpioLed.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_OUT;
 	GpioLed.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_LOW;
 	GpioLed.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_PP;
@@ -42,5 +42,5 @@ int main(void)
 void EXTI9_5_IRQHandler (void)
 {
 	GPIO_IRQHandling(GPIO_PIN_NO_5);
-	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_12);
+	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_10);
 }
