@@ -116,25 +116,21 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
 		//3. Enable the EXTI interrupt delivery using IMR
 		EXTI->IMR |= 1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber;
 	}
-	temp = 0;
 
 	//2. Configure the speed
 	temp = (pGPIOHandle->GPIO_PinConfig.GPIO_PinSpeed << (2 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));
-	pGPIOHandle->pGPIOx->OSPEEDR &= ~(0x3 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber); // Clear bit positions when later want to set
+	pGPIOHandle->pGPIOx->OSPEEDR &= ~(0x3 << (2 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber)); // Clear bit positions when later want to set
 	pGPIOHandle->pGPIOx->OSPEEDR |= temp;// Set bit position to the desired configuration
-	temp = 0;
 
 	//3. Configure the pupd settings
 	temp = (pGPIOHandle->GPIO_PinConfig.GPIO_PinPuPdControl << (2 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));
 	pGPIOHandle->pGPIOx->PUPDR &= ~(0x3 << (2 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber)); // Clear bit positions when later want to set
 	pGPIOHandle->pGPIOx->PUPDR |= temp;// Set bit position to the desired configuration
-	temp = 0;
 
 	//4. Configure the OpType
 	temp = (pGPIOHandle->GPIO_PinConfig.GPIO_PinOPType << (pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));
 	pGPIOHandle->pGPIOx->OTYPER &= ~(0x1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber); // Clear bit positions when later want to set
 	pGPIOHandle->pGPIOx->OTYPER |= temp;// Set bit position to the desired configuration
-	temp = 0;
 
 	//5. Configure the alt functionality
 	if(pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == GPIO_MODE_ALT)

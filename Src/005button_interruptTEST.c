@@ -35,14 +35,18 @@ int main(void)
 	GPIO_Init(&GPIO_button);
 
 	//IRQ Configurations
-	GPIO_IRQPriorityConfig(IRQ_NO_EXTI9_5, NVIC_IRQ_PRI15);
-	GPIO_IRQInterruptConfig(IRQ_NO_EXTI9_5, ENABLE);
+	GPIO_IRQPriorityConfig(IRQ_NO_EXTI0,NVIC_IRQ_PRI15);
+	GPIO_IRQInterruptConfig(IRQ_NO_EXTI0,ENABLE);
 
-	while(1);
+    while(1);
+
 }
 
-void EXTI9_5_IRQHandler (void)
+
+void EXTI0_IRQHandler(void)
 {
-	GPIO_IRQHandling(GPIO_PIN_NO_0);
-	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_12);
+
+    GPIO_IRQHandling(GPIO_PIN_NO_0); //clear the pending event from exti line
+    GPIO_ToggleOutputPin(GPIOD,GPIO_PIN_NO_12);
+
 }
