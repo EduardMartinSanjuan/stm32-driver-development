@@ -1,0 +1,25 @@
+# ==== Build folders ====
+Debug/
+Release/
+build/
+
+# ==== Object files ====
+*.o
+*.d
+*.su
+*.cyclo
+*.map
+*.elf
+*.bin
+*.hex
+
+# ==== Temporary files ====
+*.log
+*.tmp
+
+# ==== OS files ====
+Thumbs.db
+.DS_Store
+
+# ==== IDE metadata (optional - keep if you want clean repo) ====
+.metadata/
