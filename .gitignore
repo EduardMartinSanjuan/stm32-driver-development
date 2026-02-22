@@ -1,9 +1,13 @@
-# ==== Build folders ====
+# ==============================
+# Build folders
+# ==============================
 Debug/
 Release/
 build/
 
-# ==== Object files ====
+# ==============================
+# Compiled objects and binaries
+# ==============================
 *.o
 *.d
 *.su
@@ -12,14 +16,31 @@ build/
 *.elf
 *.bin
 *.hex
+*.list
 
-# ==== Temporary files ====
+# ==============================
+# Logs & temporary files
+# ==============================
 *.log
 *.tmp
+*.bak
 
-# ==== OS files ====
+# ==============================
+# OS files
+# ==============================
 Thumbs.db
 .DS_Store
 
-# ==== IDE metadata (optional - keep if you want clean repo) ====
+# ==============================
+# Eclipse / STM32CubeIDE metadata
+# ==============================
 .metadata/
+
+# CDT autosave / workspace
+*.launch
+
+# ==============================
+# VS Code
+# ==============================
+.vscode/settings.json
+.vscode/ipch/
