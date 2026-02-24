@@ -35,7 +35,7 @@
 
 #define FLASH_BASEADDR			0x08000000U			/*Base Address of FLASH memory*/
 #define SRAM1_BASEADDR			0x20000000U			/*Base Address of SRAM1 memory*/
-#define SRAM2_BASEADDR			0x20001C00U			/*Base Address of SRAM2 memory*/
+#define SRAM2_BASEADDR			0x2001C000U			/*Base Address of SRAM2 memory*/
 #define ROM						0x1FFF0000U			/*Base Address of ROM memory*/
 #define SRAM 					SRAM1_BASEADDR		/*Base Address of SRAM memory*/
 
