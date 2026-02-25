@@ -63,7 +63,7 @@
 #define GPIOH_BASEADDR 			(AHB1PERIPH_BASEADDR + 0x1C00)			/*Base Address of GPIOH Peripheral*/
 #define GPIOI_BASEADDR 			(AHB1PERIPH_BASEADDR + 0x2000)			/*Base Address of GPIOI Peripheral*/
 #define GPIOJ_BASEADDR 			(AHB1PERIPH_BASEADDR + 0x2400)			/*Base Address of GPIOJ Peripheral*/
-#define GPIOK_BASEADDR 			(AHB1PERIPH_BASEADDR + 0x0800)			/*Base Address of GPIOK Peripheral*/
+#define GPIOK_BASEADDR 			(AHB1PERIPH_BASEADDR + 0x2800)			/*Base Address of GPIOK Peripheral*/
 
 #define RCC_BASEADDR			(AHB1PERIPH_BASEADDR + 0x3800)			/*Base Address of RCC Register*/
 
