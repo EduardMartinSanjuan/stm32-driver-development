@@ -88,6 +88,7 @@
  */
 
 #define SPI1_BASEADDR 			(APB2PERIPH_BASEADDR + 0x3000)			/*Base Address of SPI1 Peripheral*/
+#define SPI4_BASEADDR 			(APB2PERIPH_BASEADDR + 0x3400)			/*Base Address of SPI4 Peripheral*/
 
 #define USART1_BASEADDR			(APB2PERIPH_BASEADDR + 0x1000)			/*Base Address of USART1 Peripheral*/
 #define USART6_BASEADDR			(APB2PERIPH_BASEADDR + 0x1400)			/*Base Address of USART2 Peripheral*/
