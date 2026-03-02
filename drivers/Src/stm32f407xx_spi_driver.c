@@ -322,7 +322,7 @@ void SPI_ReceiveData(SPI_RegDef_t *pSPIx, uint8_t *pRxBuffer, uint32_t Len)
 		{
 			//8 bit DFF = 0
 			//1.1 Load DR with 1 byte of data
-			*((uint16_t*)pRxBuffer) = pSPIx->DR;
+			*pRxBuffer = (uint8_t)pSPIx->DR;
 			//1.2 Decrement Len 1 byte
 			Len--;
 			//1.3 Increment the buffer address 1 byte
