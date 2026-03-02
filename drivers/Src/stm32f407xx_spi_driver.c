@@ -190,7 +190,7 @@ void SPI_SendData(SPI_RegDef_t *pSPIx, uint8_t *pTxBuffer, uint32_t Len)
 			Len --;
 			Len --;
 			//1.3 Increment the buffer address 2 byte
-			(uint16_t*)pTxBuffer++;
+			pTxBuffer += 2;
 
 		}else
 		{
@@ -316,7 +316,7 @@ void SPI_ReceiveData(SPI_RegDef_t *pSPIx, uint8_t *pRxBuffer, uint32_t Len)
 			Len --;
 			Len --;
 			//1.3 Increment the buffer address 2 byte
-			(uint16_t*)pRxBuffer++;
+			pRxBuffer += 2;
 
 		}else
 		{
