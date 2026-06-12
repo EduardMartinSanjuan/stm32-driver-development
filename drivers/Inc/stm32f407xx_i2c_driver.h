@@ -67,6 +67,7 @@ void I2C_DeInit(I2C_RegDef_t *pI2Cx);
 void I2C_SendData(I2C_RegDef_t *pI2Cx, uint8_t *pTxBuffer, uint32_t Len);
 void I2C_ReceiveData(I2C_RegDef_t *pI2Cx, uint8_t *pRxBuffer, uint32_t Len);
 
+/*
  * IRQ Configuration and ISR Handling
  */
 void I2C_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi);
