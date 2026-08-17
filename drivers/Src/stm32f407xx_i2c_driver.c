@@ -1,5 +1,7 @@
 #include "stm32f407xx_i2c_driver.h"
 
+ uint16_t AHB_PreScaler[8] = {2,4,8,16,64,128,256,512};
+ uint16_t APB1_PreScaler[4] = {2,4,8,16};
 
 /*********************************************************************
  * @fn      		  - I2C_PeriClockControl
@@ -68,9 +70,89 @@ void I2C_Init(I2C_Handle_t *pI2CHandle)
 	//Configure the I2C_CR1 register
 	uint32_t tempreg = 0;
 
+	tempreg |= pI2CHandle->I2C_Config.I2C_ACKControl << 10;
+	tempreg |= pI2CHandle->I2C_Config.
+	
 	//enable the I2C peripheral clock
 	I2C_PeriClockControl(pI2CHandle->pI2Cx, ENABLE);
 }
+
+/*********************************************************************
+ * @fn      		  - RCC_GetPLLOutputClock
+ *
+ * @brief             - Not IMPLEMENTED
+ *
+ * @param[in]         - 
+ * @param[in]         -
+ * @param[in]         -
+ *
+ * @return            -  none
+ *
+ * @Note              -  none
+
+ */
+uint32_t RCC_GetPLLOutputClock()
+{
+	return 0;
+}
+
+
+/*********************************************************************
+ * @fn      		  - RCC_GetPCLK1Value
+ *
+ * @brief             - Get the i2c freq to be configured
+ *
+ * @param[in]         - 
+ * @param[in]         -
+ * @param[in]         -
+ *
+ * @return            -  none
+ *
+ * @Note              -  none
+
+ */
+
+void RCC_GetPCLK1Value(void)
+{
+	uint32_t pclk1,SystemClk;
+	uint8_t clksrc, temp, ahbp,apb1p;
+
+	//Read values from bits 2 and 3 "System clock switch status" from the RCC_CFGR register. Then mask
+	clksrc = (RCC->CFGR >> 2) & 0x3;
+
+	If(clksrc == 0){
+		SystemClk = 16000000; //HSI oscillator used as the system clock
+	}else if(clksrc == 1){
+		SystemClk = 8000000; //HSE oscillator used as the system clock
+	}else if(clksrc == 2){
+		SystemClk = RCC_GetPLLOutputClock(); //PLL used as the system clock
+	}
+
+	//For ahb
+	temp = ((RCC->CFGR >> 4) & 0xF);
+	if (temp < 8)
+	{
+		ahbp = 1;
+	}else
+	{
+		ahbp = AHB_PreScaler[temp-8];
+	}
+
+	//For apb1
+	temp = ((RCC->CFGR >> 10) & 0x7);
+	if (temp < 4)
+	{
+		apb1p = 1;
+	}else
+	{
+		apb1p = APB1_PreScaler[temp-4];
+	}
+	
+	pclk1 = (SystemClk/ahbp)/apb1p;
+
+	return pclk1;
+}
+
 
 /*********************************************************************
  * @fn      		  - I2C_DeInit
